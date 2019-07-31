@@ -1,0 +1,258 @@
+@import "normalize.css";
+@import "bootstrap-grid.min.css";
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* General */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+a {
+	display: inline-block;
+	text-decoration: none;
+}
+
+
+ul, li {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+img {
+width: 100%;
+}
+
+
+.main-header {
+	width: 100%;
+	height: 50px;
+	background-color: rgba(240, 240, 240, 0.3);
+
+}
+
+
+
+#btn-menu {
+	display: none;
+}
+
+.main-header label {
+	display: none;
+	font-size:25px;
+	cursor: pointer;
+}
+
+.main-header ul li a i{
+color: rgb(0, 0, 0);
+padding-right: 15px;
+margin: 0px 0px 10px 0px;
+}
+
+
+.menu ul {
+	background-color: rgba(191, 190, 190);
+	display: flex;
+
+}
+
+
+.menu ul ul{
+	display: none;
+}
+
+.menu a {
+	display: inline-block;
+	height: 50px;
+	padding: 15px 25px;
+	color: rgb(0, 0, 0);
+
+}
+
+.menu a:hover {
+	background-color: rgba(180, 180, 180, 0.8);
+
+}
+
+.menu a span {
+	margin-left: 10px;
+	color: #fff;
+}
+
+.menu ul li:hover ul{
+	display: block;
+	position: absolute; /*para que no se vaya del padre contenedor (su columna)*/
+}
+
+
+@media (max-width:998px) {
+
+	.main-header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		background-color: rgba(240, 240, 240, 0.3);
+
+	}
+
+	.main-header label {
+		display: flex;
+		margin-left: 3vw;
+	}
+
+	.main-header ul li a i{
+	margin-bottom: 0px;
+	}
+
+	.main-header ul {
+	display: flex;
+
+	}
+
+	.formulario {
+		display: none;
+	}
+	.main-header ul li span {
+		display: none;
+
+	}
+
+
+	.main-header img {
+	align-items: center;
+	width: 100px;
+	margin-left: 13vw;
+
+	}
+
+	.menu {
+		position: absolute;
+		top: 50px;
+		width: 100%;
+		transform: translateX(-100%);
+		z-index: 10;
+		background-color: rgba(0, 0, 0);
+		}
+
+	.menu ul {
+		flex-direction: column; /*porque le había dado display:flex al ul */
+	}
+
+	.menu ul li:hover ul{
+		display: none; /*porque en mobile las listas no se desplegan hay que tocarlas*/
+		position: static;
+	}
+
+	#btn-menu:checked ~ .menu {
+	transform: translateY(0%);
+	} /*Cuando haga clic en el botón "menu" se translade sobre su eje Y*/
+
+	.menu ul ul {
+		background-color: rgba(159, 159, 159, 0.5);
+	}
+
+	.redes-nav {
+		display: flex;
+		flex-direction: row;
+		padding: 0px;
+		background-color: rgba(167, 167, 167, 0.5);
+		width: 100%;
+	}
+
+	.menu .redes-nav li a, .menu .redes-nav li a i {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 10px;
+
+	}
+	aside {
+	display: none;
+	}
+
+	.submit-search {
+		display: flex;
+		border-color: transparent;
+		background-color: rgba(240, 240, 240, 0.1);
+		cursor: pointer;
+
+	}
+	}
+@media (min-width:999px) {
+
+.main-header {
+	background-color: rgba(240, 240, 240, 0.3);
+	height: 110px;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	/* position: fixed; */
+	justify-content: space-between;
+
+}
+
+
+.menu {
+	width: 100%;
+	justify-content: space-between;
+	z-index: 7;
+}
+
+.main-header img {
+height: 60px;
+
+}
+
+.iconos-menu {
+	display: flex;
+	padding: 10px;
+	align-items: flex-end;
+	text-decoration: none;
+	color: black;
+}
+
+
+.redes-nav  {
+	display: flex;
+	padding: 0px;
+
+}
+
+.redes-nav a  {
+display: flex;
+
+}
+
+input  {
+	padding: 5px;
+}
+
+.main-header ul li span{
+color: rgb(0,0,0);
+padding: 5px;
+
+}
+
+aside {
+padding: 10px;
+font-size: 0.7em;
+}
+
+.submit-search {
+	display: flex;
+	border-color: transparent;
+	background-color: rgba(240, 240, 240, 0.1);
+	cursor: pointer;
+	padding: 8px;
+
+}
+
+
+
+}
