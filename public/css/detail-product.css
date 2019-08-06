@@ -21,12 +21,13 @@ img {
  }
 /*pagina de un producto*/
 
+.img-product {
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.unproductoimagen{
-	background-image: url(images/producto.jpg);
 }
-
 .detalle-producto{
 	color:#434343;
 	text-transform: uppercase;
@@ -72,10 +73,10 @@ h3.titulo-producto {
 .dar-el-color,
 .dar-el-talle{
 display: block;
-text-align: center;
+
 display: inline;
-padding: 0.2em .6em .3em;
-font-size: 0.5em;
+
+font-size: 0.9em;
 font-family: 'Lato',sans-serif;
 }
 
@@ -108,9 +109,3 @@ font-family: 'Lato',sans-serif;
 	background-color: #66D065;
 
 }
-
-
-.boton-borrar {
-  background-color: red;
-
-  }

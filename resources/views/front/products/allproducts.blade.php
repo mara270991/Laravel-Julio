@@ -4,20 +4,20 @@
 
 @section('mainContent')
 <br>
+
+	@if(Auth::user() &&  Auth::user()->admin == 1)
 	<div class="listado">Listado de productos</div>
-
-	@auth
-		<h2>Hola }}</h2>
-	@endauth
-
 	<p class="cant-productos">En nuestra base de datos hay un total de: {{ $totalProducts }} de productos.</p>
+	@endif
 
+
+
+	@if(Auth::user() &&  Auth::user()->admin == 1)
 	<div class="boton-crear-centrado">
-
-
 	<a href="/products/create" class="boton-crear">CREAR PRODUCTO</a>
-
 	</div>
+	@endif
+
 
         <div class="row">
 
@@ -28,6 +28,7 @@
                 <h3 class="detalle-title-product"> {{ $product->name }}  </h3>
                 <h3 class="price"> ${{ $product->price }} </h3>
 
+								@if(Auth::user() &&  Auth::user()->admin == 1)
                 <div class="boton">
                 <a href="/products/{{ $product->id }}/edit" > EDITAR  </a>
                 </div>
@@ -37,8 +38,15 @@
             			{{ method_field('delete') }}
 
                   	<button class="boton-borrar" type="submit">BORRAR</button>
+									</form>
+								@else
 
-                </form>
+								<div class="boton">
+                <a href="/products/{{ $product->id }}" > VER PRODUCTO  </a>
+                </div>
+
+								@endif
+
                   </div>
                   </div>
                   @endforeach

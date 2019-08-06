@@ -1,11 +1,11 @@
 <?php
 
 
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
 
 class ProductsController extends Controller
 {
@@ -16,17 +16,42 @@ class ProductsController extends Controller
      */
     public function index()
     {
-      $products = Product::simplePaginate(5);
+      $products = Product::simplePaginate(8);
       $totalProducts = count(Product::all());
 
       return view('front/products/allproducts', compact('products','totalProducts'));
     }
 
+    public function categories($id)
+    {
+      $categories = Category::find($id);
+
+      $products = Product::simplePaginate(8);
+      $productsCat = Product::where("category_id", $id)->get();
+
+      return view('front/categories/index', compact('products','productsCat','categories'));
+    }
+
     public function show($id)
     {
+      $colors = \App\Color::orderBy('name')->get();
+      $sizes = \App\Size::orderBy('name')->get();
+      $categories = \App\Category::orderBy('name')->get();
+
       $theProduct = Product::find($id);
 
-      return view('front.products.show', compact('theProduct'));
+      return view('front.products.show', compact('theProduct','colors','sizes','categories'));
+    }
+
+    public function thanks($id)
+    {
+      $colors = \App\Color::orderBy('name')->get();
+      $sizes = \App\Size::orderBy('name')->get();
+      $categories = \App\Category::orderBy('name')->get();
+
+      $theProduct = Product::find($id);
+
+      return view('front.products.thanks', compact('theProduct','colors','sizes','categories'));
     }
 
     public function create()
@@ -39,12 +64,7 @@ class ProductsController extends Controller
   		return view('front.products.create', compact('colors','sizes','categories'));
   	}
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
      public function store(Request $request)
    	{
       // dd($request->all());
@@ -108,7 +128,7 @@ class ProductsController extends Controller
       $product->sizes()->attach($request->input('sizes'));
 
   		// 3. Redireccionamos SIEMPRE a una RUTA
-  		return redirect('/products/' . $product->id);
+  		return redirect('/products');
     }
 
 
@@ -172,5 +192,14 @@ class ProductsController extends Controller
       return redirect('/products');
     }
 
+
+    public function result(Request $request)
+    {
+
+
+      $products = Product::where('name', 'LIKE', '%' . $request->word . '%')->get();
+
+      return view('front.products.result', compact('products'));
+    }
 
 }

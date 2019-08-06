@@ -25,13 +25,13 @@
   <br>
   <br>
   <ul class="sections-faq">
-    <li><a href="faq">¿Cómo comprar?</a></li>
-    <li><a href="faq">Envíos</a>
-    <li><a href="faq">Devoluciones</a></li>
-    <li><a href="faq">Talles y locales</a>
-    <li><a href="faq">Trabajá con nosotros</a></li>
-    <li><a href="faq">Quienés somos </a>
-    <li><a href="faq">Contacto</a></li>
+    <li><a href="/faq">¿Cómo comprar?</a></li>
+    <li><a href="/faq">Envíos</a>
+    <li><a href="/faq">Devoluciones</a></li>
+    <li><a href="/faq">Talles y locales</a>
+    <li><a href="/faq">Trabajá con nosotros</a></li>
+    <li><a href="/faq">Quienés somos </a>
+    <li><a href="/faq">Contacto</a></li>
 
 </footer>
 </body>

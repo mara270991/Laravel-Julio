@@ -3,7 +3,7 @@
 @section('pageTitle', 'Edita un producto')
 
 @section('mainContent')
-	<h2>Formulario para editar el producto</h2>
+	<h2 class="listado">Formulario para editar el producto</h2>
 
 	<form  action="/products/{{ $productToEdit->id }}"  method="post" enctype="multipart/form-data">
 		@csrf
@@ -11,20 +11,21 @@
 		<div class="row" >
 			<div class="col-12">
 				<div class="form-group">
-					<label>Nombre del producto</label>
-					<input
-						type="text"
-						name="name"
-						value="{{ old('name', $productToEdit->name) }}"
-						class="form-control"
-					>
-					@error('name')
-						<span class="text-danger">
-							{{ $message }}
-						</span>
-					@enderror
+					<label class="imput-create">Nombre del producto</label>
+							<div class="centrado">
+							<input
+								type="text"
+								name="name"
+								value="{{ old('name', $productToEdit->name) }}"
+								class="form-control"
+							>
+							@error('name')
+								<span class="text-danger">
+									{{ $message }}
+								</span>
+							@enderror
 
-
+							</div>
 				</div>
 				<br>
 			</div>
@@ -32,7 +33,8 @@
       <br>
 			<div class="col-12">
 				<div class="form-group">
-					<label>Descripción</label>
+					<label class="imput-create">Descripción</label>
+						<div class="centrado">
 					<input
 						type="text"
 						name="description"
@@ -44,7 +46,7 @@
 							{{ $message }}
 						</span>
 					@enderror
-
+					</div>
 				</div>
 				<br>
 			</div>
@@ -52,7 +54,8 @@
 
         <div class="col-12">
           <div class="form-group">
-            <label>Precio</label>
+            <label class="imput-create">Precio</label>
+						<div class="centrado">
             <input
               type="text"
               name="price"
@@ -65,11 +68,13 @@
 							</span>
 						@enderror
 					</div>
+					</div>
 					<br>
 				</div>
 						<div class="col-12">
 							<div class="form-group">
-								<label>Subí una imagen</label>
+								<label class="imput-create">Subí una imagen</label>
+								<div class="centrado">
 								<input
 								 type="file"
 								 name="poster"
@@ -80,19 +85,22 @@
 		 								{{ $message }}
 		 							</span>
 		 						@enderror
+								</div>
 							</div>
 							<br>
 						</div>
 
           <div class="col-12">
             <div class="form-group">
-              <label>Colores: </label>
+              <label class="imput-create">Colores: </label>
+							<div class="centrado">
 							@error('colors')
 							 <span class="text-danger">
 								 {{ $message }}
 							 </span>
 						 @enderror
               <p class="form-control" name="colors">
+
                 @foreach ($colors as $color)
                 @if($productToEdit->colors->contains($color->id))
                 <input type="checkbox" name="colors[]" value="{{ $color->id }} " checked> {{ $color->name }}
@@ -103,19 +111,22 @@
 								@endforeach
 								<br>
               </p>
+							</div>
             </div>
             <br>
             </div>
 
 						<div class="col-12">
 	            <div class="form-group">
-	              <label>Talles: </label>
+	              <label class="imput-create">Talles: </label>
+								<div class="centrado">
 								@error('sizes')
 								 <span class="text-danger">
 									 {{ $message }}
 								 </span>
 							 @enderror
 	              <p class="form-control" name="sizes">
+
                   @foreach ($sizes as $size)
                   @if($productToEdit->sizes->contains($size->id))
                   <input type="checkbox" name="sizes[]" value="{{ $size->id }} " checked> {{ $size->name }}
@@ -125,23 +136,30 @@
 
                   @endforeach
 	              </p>
+								 </div>
 	            </div>
 							<br>
 							</div>
 
 							<div class="col-12">
 								<div class="form-group">
-									<label>Categorias: </label>
+									<label class="imput-create">Categorias: </label>
+										<div class="centrado">
 									<select class="form-control" name="categories">
+
 										@foreach ($categories as $category)
 										<option value="{{ $category->id }}">{{ $category->name }}</option>
 										@endforeach
 									</select>
 								</div>
+								</div>
 	            <br>
 	            </div>
+
 							<div class="col-12">
-								<button type="submit" class="btn btn-success">Guardar producto</button>
+								<div class="boton-crear-centrado">
+								<button type="submit" class="boton-crear">Guardar producto</button>
+							</div>
 							</div>
 			</div>
 	</form>

@@ -1,5 +1,5 @@
 <!-- <link rel="stylesheet" href="/css/app.css"> -->
-<link rel="stylesheet" href="css/bootstrap-grid.min.css">
+<link rel="stylesheet" href="/css/bootstrap-grid.min.css">
 <link rel="stylesheet" href="/css/nav.css">
 <link rel="stylesheet" href="/css/home.css">
 <link rel="stylesheet" href="/css/footer.css">

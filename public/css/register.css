@@ -72,6 +72,10 @@ img {
    color: rgb(255, 0, 0);
  }
 
+ .is-invalid {
+   color: rgb(255, 0, 0);
+ }
+
  .btn-success {
    border-color: transparent;
    border-radius: 10px;

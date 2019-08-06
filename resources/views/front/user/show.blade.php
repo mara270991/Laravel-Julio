@@ -12,7 +12,8 @@
       <img src="/storage/images/{{ Auth::user()->avatar }}" width="10">
       @endif
       <br><br>
-      <a href="/" class="btn btn-success">Editá tus datos</a>
+      <a href="/profile/{{$user->id}}/edit" class="btn btn-success">Editá tus datos</a>
+
       <hr>
     </div>
   </div>

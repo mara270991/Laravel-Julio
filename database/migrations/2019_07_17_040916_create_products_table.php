@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
           $table->string('name', 100); // varchar(100)
           $table->decimal('price', 8, 2); // 999.999.99
           $table->string('description', 300); // varchar(300)
-          $table->string('poster', 100); // varchar(100)
+          $table->string('image', 100); // varchar(100)
           $table->timestamps();
         });
     }
